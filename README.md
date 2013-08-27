@@ -5,7 +5,7 @@ JSP code to enable dynamic creation of requireJS calls based on the components d
 
 1. Place this code in the head or headlibs.jsp file of your page template component.
 
-2. Add a String[] (multi) property called "requireJS" to your components that have a requireJS configuration.
+2. Add a `String[]` (multi) property called "requireJS" to your components that have a requireJS configuration.
 
   **For example (via .content.xml template file):**
   ```xml
