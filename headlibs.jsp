@@ -1,4 +1,3 @@
-
 <%@ page session="false" import="java.util.Iterator,
                                  java.util.Set,
                                  java.util.HashSet,
@@ -24,7 +23,7 @@
 
 	                    Node comp = root.getNode("apps/" + resType);
 	                    if( comp.hasProperty("requireJS")){
-	                        Value[] dep = comp.getProperty("requireJS").getValues();
+	                        Value[] dep = comp.getProperty("requireJS").isMultiple() ? comp.getProperty("requireJS").getValues() : new Value[] {comp.getProperty("requireJS").getValue()};
 	                        for (Value v : dep){
 	                            deps.add(v.getString());
 	                        }
@@ -33,7 +32,7 @@
 
                         // Also check the page node itself for any dynamically set requireJS calls
                         if(kid.hasProperty("requireJS")){
-				Value[] req = kid.getProperty("requireJS").getValues();
+				Value[] req = kid.getProperty("requireJS").isMultiple() ? kid.getProperty("requireJS").getValues() : new Value[] {kid.getProperty("requireJS").getValue()};
                         	for (Value v : req){
 	                            deps.add(v.getString());
 	                        }
@@ -59,7 +58,7 @@
 
     if( templateNode.hasProperty("requireJS")){
 
-        Value[] dep = templateNode.getProperty("requireJS").getValues();
+        Value[] dep = templateNode.getProperty("requireJS").isMultiple() ? templateNode.getProperty("requireJS").getValues() : new Value[] {templateNode.getProperty("requireJS").getValue()};
 
         for (Value v : dep){
             deps.add(v.getString());
