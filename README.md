@@ -1,8 +1,6 @@
 CQ5-RequireJS
 =============
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/3lux/cq5-requirejs/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
 JSP code to enable dynamic creation of requireJS calls based on the components dropped in a CQ5 page template.
 
 1. Place this code in the head or headlibs.jsp file of your page template component.
